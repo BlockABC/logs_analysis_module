@@ -52,14 +52,14 @@ type RecordRequest struct {
 	//es
 	es        *elasticClient
 	//log
-	logger    logger
+	logger    AnalysisLogger
 	//log prefix
 	logPrefix string
 	// Do I need to print?
 	logMode   bool
 }
 
-func NewRecordRequest(es *elasticClient, logger logger, logPrefix string, logMode bool) *RecordRequest {
+func NewRecordRequest(es *elasticClient, logger AnalysisLogger, logPrefix string, logMode bool) *RecordRequest {
 	if logger == nil {
 		logger = Logger{}
 	}
@@ -74,7 +74,7 @@ func NewRecordRequest(es *elasticClient, logger logger, logPrefix string, logMod
 	}
 }
 
-func (rq *RecordRequest) SetLogger(logger logger) {
+func (rq *RecordRequest) SetLogger(logger AnalysisLogger) {
 	if logger == nil {
 		logger = Logger{}
 	}
